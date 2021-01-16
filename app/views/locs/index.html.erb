@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Locs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address 1</th>
+      <th>Address 2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Postal code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @locs.each do |loc| %>
+      <tr>
+        <td><%= loc.address_1 %></td>
+        <td><%= loc.address_2 %></td>
+        <td><%= loc.city %></td>
+        <td><%= loc.state %></td>
+        <td><%= loc.postal_code %></td>
+        <td><%= link_to 'Show', loc %></td>
+        <td><%= link_to 'Edit', edit_loc_path(loc) %></td>
+        <td><%= link_to 'Destroy', loc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Loc', new_loc_path %>

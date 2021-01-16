@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Address 1:</strong>
+  <%= @loc.address_1 %>
+</p>
+
+<p>
+  <strong>Address 2:</strong>
+  <%= @loc.address_2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @loc.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @loc.state %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @loc.postal_code %>
+</p>
+
+<%= link_to 'Edit', edit_loc_path(@loc) %> |
+<%= link_to 'Back', locs_path %>
