@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Locations</h1>
+
+<div class="container">
+  <% @locations.each do |location| %>
+    <div class="card is-horizontal columns mb-5">
+      <div class="card-image column is-one-quarter">
+        <figure class="image">
+          <img src="<%= asset_path("blank-pig.png") %>">
+        </figure>
+      </div>
+      <div class="card-content column">
+        <h1><%= location.vendor.name %></h1>
+        <a href="<%= location.vendor.website %>">
+          <%= location.vendor.website %>
+        </a><br />
+        <%= location.address_1 %><br />
+        <% if location.address_2 %><%= location.address_2 %><% end %>
+        <%= location.city %>, <%= location.state %>&nbsp;
+        <%= location.postal_code %><br />
+        <%= location.hours %> <%= location.phone %>
+      </div>
+    </div>
+  <% end %>
+</div>

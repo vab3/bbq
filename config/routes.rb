@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :locs
   devise_for :users
   resources :vendors
+  resources :locations
+  get '/restaurants', to: 'locations#restaurants'
   root to: "vendors#index"
 end
