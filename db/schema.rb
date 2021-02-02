@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_16_211411) do
+ActiveRecord::Schema.define(version: 2021_02_02_025126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "locs", force: :cascade do |t|
+  create_table "locations", force: :cascade do |t|
     t.bigint "vendor_id"
+    t.integer "location_type"
     t.string "latitude"
     t.string "longitude"
     t.string "address_1"
@@ -24,9 +25,11 @@ ActiveRecord::Schema.define(version: 2021_01_16_211411) do
     t.string "city"
     t.string "state"
     t.string "postal_code"
+    t.string "hours"
+    t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["vendor_id"], name: "index_locs_on_vendor_id"
+    t.index ["vendor_id"], name: "index_locations_on_vendor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,9 +46,11 @@ ActiveRecord::Schema.define(version: 2021_01_16_211411) do
 
   create_table "vendors", force: :cascade do |t|
     t.string "name"
+    t.string "website"
+    t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "locs", "vendors"
+  add_foreign_key "locations", "vendors"
 end

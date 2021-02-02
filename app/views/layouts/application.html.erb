@@ -11,16 +11,36 @@
   </head>
 
   <body>
-    <p class="navbar-text float-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-</p>
+    <div class="navbar">
+      <div class="navbar-brand">
+        <div class="navbar-item">
+          BBQPit
+        </div>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <% if user_signed_in? %>
+            <div class="navbar-item">
+              Welcome, <strong><%= current_user.email %></strong>
+            </div>
+            <div class="navbar-item">
+              <div class="buttons">
+                <%= link_to 'Edit profile', edit_user_registration_path, :class => 'button is-primary' %>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'button is-light'  %>
+              </div>
+            </div>
+          <% else %>
+            <div class="navbar-item">
+              <div class="buttons">
+                <%= link_to "Sign up", new_user_registration_path, :class => 'button is-primary'  %>
+                <%= link_to "Login", new_user_session_path, :class => 'button is-light'  %>
+              </div>
+            </div>
+          <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <section class="section">

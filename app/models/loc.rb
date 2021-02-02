@@ -1,2 +1,0 @@
-class Loc < ApplicationRecord
-end

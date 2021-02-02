@@ -1,7 +1,25 @@
 <h1>Vendors</h1>
 
-<ul>
+<div class="container">
   <% @vendors.each do |vendor| %>
-    <li><%= vendor.name %></li>
+    <div class="card is-horizontal columns">
+      <div class="card-image column is-one-quarter">
+        <figure class="image">
+          <img src="<%= asset_path("blank-pig.png") %>">
+        </figure>
+      </div>
+      <div class="card-content column">
+        <h1><%= vendor.name %></h1>
+        <a href="<%= vendor.website %>"><%= vendor.website %></a>
+        <% vendor.locations.each do |location| %>
+          <div>
+            <%= location.address_1 %><br />
+            <% if location.address_2 %><%= location.address_2 %><% end %>
+            <%= location.city %>, <%= location.state %> <%= location.postal_code %><br />
+            <%= location.hours %> <%= location.phone %>
+          </div>
+      <% end %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
