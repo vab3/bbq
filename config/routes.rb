@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :vendors
   resources :locations
   get '/restaurants', to: 'locations#restaurants'
+  get '/states', to: 'locations#states'
   root to: "vendors#index"
 end

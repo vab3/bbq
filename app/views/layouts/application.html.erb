@@ -13,10 +13,13 @@
   <body>
     <div class="navbar">
       <div class="navbar-brand">
-        <div class="navbar-item">
-          BBQPit
-        </div>
+        <a href="<%= root_url %>" class="navbar-item">
+          <%= image_tag('bbq-logo.png', height: 42) %>
+        </a>
       </div>
+     <%= link_to "Restaurants", restaurants_path, class: 'navbar-item' %>
+     <%= link_to "By State", states_path, class: 'navbar-item' %>
+     <%= link_to "Vendors", vendors_path, class: 'navbar-item' %>
       <div class="navbar-menu">
         <div class="navbar-end">
           <% if user_signed_in? %>
