@@ -1,6 +1,10 @@
 <h1>Vendors</h1>
 
 <div class="container">
+<% if user_signed_in? %>
+  <%= link_to "Add Vendor" , new_vendor_url  %>
+  <hr />
+<% end %>
   <% @vendors.each do |vendor| %>
     <div class="card is-horizontal columns">
       <div class="card-image column is-one-quarter">
@@ -19,6 +23,10 @@
             <%= location.hours %> <%= location.phone %>
           </div>
       <% end %>
+      <% if user_signed_in? %>
+      <div><%= link_to "Edit", edit_vendor_path(vendor.id) %> </div>
+      <% end %>
+
       </div>
     </div>
   <% end %>
