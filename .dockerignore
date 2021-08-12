@@ -1,0 +1,5 @@
+.git
+.dockerignore
+.env
+rails/node_modules/
+rails/vendor/bundle/

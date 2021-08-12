@@ -1,43 +1,27 @@
-version: '3'
-networks:
-  development:
-volumes:
-  db_data:
-  gem_cache:
-  shared_data:
+version: "3.7"
 services:
-  bbq_db:
-    image: postgres:12.5-alpine
-    container_name: bbq_db
-    volumes:
-      - db_data:/var/lib/postgresql/data
-      - shared_data:/var/shared
-    networks:
-      - development
+  postgres:
+    image: postgres:12.1
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-    ports:
-      - 5099:5432
-  bbq_app:
+      POSTGRES_USER: bbq
+      POSTGRES_PASSWORD: test_db_password
+    ports: 
+      - '5432:5432'
+    volumes:
+      - bbq-postgres:/var/lib/postgresql/data
+  bbq:
     build:
       context: .
-      dockerfile: Dockerfile.dev
-    container_name: bbq_app
+      args:
+        USER_ID: "${USER_ID:-1000}"
+        GROUP_ID: "${GROUP_ID:-1000}"
     volumes:
-      - .:/var/app
-      - shared_data:/var/shared
-      - gem_cache:/usr/local/bundle/gems
-    networks:
-      - development
+      - ./rails:/opt/app
+    links:
+      - postgres
     ports:
-      - 3000:3000
-    stdin_open: true
-    tty: true
-    env_file: .env.development
-    entrypoint: dev-entrypoint.sh
-    command: ['rails', 'server', '-p', '3000', '-b', '0.0.0.0']
-    environment:
-      RAILS_ENV: development
-    depends_on:
-      - bbq_db
+      - '8010:8010'
+    env_file:
+      - .env
+volumes:
+  bbq-postgres:
