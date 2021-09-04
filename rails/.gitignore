@@ -38,3 +38,5 @@ tmp/*
 yarn-debug.log*
 .yarn-integrity
 .env
+
+node_modules/

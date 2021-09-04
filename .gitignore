@@ -1,1 +1,4 @@
 .env
+/rails/tmp
+/rails/node_modules
+/rails/log
