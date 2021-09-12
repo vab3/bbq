@@ -13,7 +13,9 @@
         </figure>
       </div>
       <div class="card-content column">
-        <h1><%= vendor.name %></h1>
+        <h1>
+          <%= link_to vendor.name, vendor_url(vendor.id) %>
+        </h1>
         <a href="<%= vendor.website %>"><%= vendor.website %></a>
         <% vendor.locations.each do |location| %>
           <div>

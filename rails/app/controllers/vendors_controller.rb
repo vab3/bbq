@@ -22,6 +22,10 @@ class VendorsController < ApplicationController
     redirect_to vendors_path
   end
 
+  def show
+    @vendor = Vendor.find_by(id: params[:id])
+  end
+
    private
     def vendor_params
       params.require(:vendor).permit(:name, :website, :status)
