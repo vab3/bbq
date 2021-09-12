@@ -11,13 +11,13 @@ development:
   username: vab3
   password: postgres
 
-development:
+test:
   <<: *default
   database: bbq_test
   username: vab3
   password: postgres
 
-development:
+production:
   <<: *default
   url: <%= ENV.fetch("DATABASE_URL")
 
