@@ -16,7 +16,7 @@ services:
         USER_ID: "${USER_ID:-1000}"
         GROUP_ID: "${GROUP_ID:-1000}"
     volumes:
-      - ./rails:/opt/app
+      - .:/opt/app
     links:
       - postgres
     ports:

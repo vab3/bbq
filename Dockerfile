@@ -12,7 +12,7 @@ ENV INSTALL_PATH /opt/app
 RUN mkdir -p $INSTALL_PATH
 
 WORKDIR $INSTALL_PATH
-COPY rails/ .
+COPY . .
 
 # RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -o /root/yarn-pubkey.gpg
 RUN apt-key add /opt/app/yarn-pubkey.gpg
