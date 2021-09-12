@@ -7,7 +7,7 @@
     <div class="card is-horizontal columns mb-5">
       <div class="card-content column">
         <h1>
-          <%= link_to location.vendor.name, location_path(location.id) %>
+          <%= link_to location.vendor.name, vendor_path(location.vendor) %>
         </h1>
         <a href="<%= location.vendor.website %>">
           <%= location.vendor.website %>

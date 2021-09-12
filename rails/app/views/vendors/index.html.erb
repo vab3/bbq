@@ -26,7 +26,10 @@
           </div>
       <% end %>
       <% if user_signed_in? %>
-      <div><%= link_to "Edit", edit_vendor_path(vendor.id) %> </div>
+        <div>
+         <%= link_to "Edit", edit_vendor_path(vendor) %> 
+         | <%= link_to "Delete", vendor_path(vendor),data: {confirm: "Are you sure?"}, method: :delete %> 
+        </div>
       <% end %>
 
       </div>

@@ -14,6 +14,18 @@ class LocationsController < ApplicationController
 
   end
 
+  def edit
+    redirect_to vendors_path unless user_signed_in?
+    @location = Location.find(params[:id])
+  end
+
+  def destroy
+    redirect_to vendors_path unless user_signed_in?
+    @location = Location.find(params[:id])
+    vendor = @location.vendor
+    @location.delete
+    redirect_to vendor_path(vendor)
+  end
 
   def states
   end
