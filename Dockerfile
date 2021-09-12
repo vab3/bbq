@@ -1,5 +1,5 @@
 # Dockerfile development version
-FROM ruby:2.7.2 AS bbq-development
+FROM ruby:2.7.4 AS bbq-development
 
 ARG USER_ID
 ARG GROUP_ID

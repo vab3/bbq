@@ -1,13 +1,21 @@
 default: &default
   adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
+  username: vab3
+  password: postgres
+
 development:
   <<: *default
-  url: <%= ENV['DATABASE_URL'].gsub('?', '_development?') %>
-test:
+  database: bbq_dev
+
+development:
   <<: *default
-  url: <%= ENV['DATABASE_URL'].gsub('?', '_test?') %>
-production:
+  database: bbq_test
+
+development:
   <<: *default
-  url: <%= ENV['DATABASE_URL'].gsub('?', '_production?') %>
+  database: bbq_prod
+

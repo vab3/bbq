@@ -1,0 +1,13 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+development:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'].gsub('?', '_development?') %>
+test:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'].gsub('?', '_test?') %>
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'].gsub('?', '_production?') %>
