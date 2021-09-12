@@ -9,6 +9,11 @@ class LocationsController < ApplicationController
                          .order('vendors.name')
   end
 
+  def show
+    @loc = Location.find(params[:id])
+
+  end
+
 
   def states
   end
