@@ -23,10 +23,10 @@ class VendorsController < ApplicationController
   end
 
   def show
-    @vendor = Vendor.find_by(id: params[:id])
+    @vendor = Vendor.find_by(id: params[:id].to_i)
   end
 
-   private
+  private
     def vendor_params
       params.require(:vendor).permit(:name, :website, :status)
     end

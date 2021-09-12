@@ -14,7 +14,7 @@
       </div>
       <div class="card-content column">
         <h1>
-          <%= link_to vendor.name, vendor_url(vendor.id) %>
+          <%= link_to vendor.name, vendor_url(vendor) %>
         </h1>
         <a href="<%= vendor.website %>"><%= vendor.website %></a>
         <% vendor.locations.each do |location| %>
