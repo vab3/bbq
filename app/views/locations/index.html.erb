@@ -1,6 +1,22 @@
+<% longlat = "-80.9761,33.744" %>
+<% mapbox_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/#{longlat},5.92,0/600x400?access_token=pk.eyJ1IjoidmFiMyIsImEiOiJja3VlYXUwbmExaXR3MnZtbnFycTlzbmhyIn0.q2g4fb0Z5YpRx84-rtGLWw" %>
+
+<style>
+      #map-container { width: 600px; height: 400px; margin: 20px 0; display: grid; }
+      #map { grid-column: 1; grid-row: 1; width: 100%; height: 100%;}
+      #static { 
+        background-image: url("<%= mapbox_url %>");
+        width: 100%; height: 100%; grid-column: 1; grid-row: 1; }
+</style>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Locations</h1>
+maphere
+<div id="map-container">
+  <div id="map"></div>
+  <div id="static"></div>
+</div>
 
 <div class="container">
   <% @locations.each do |location| %>
@@ -21,3 +37,23 @@
     </div>
   <% end %>
 </div>
+
+
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoidmFiMyIsImEiOiJja3VlYXUwbmExaXR3MnZtbnFycTlzbmhyIn0.q2g4fb0Z5YpRx84-rtGLWw';
+    var map = new mapboxgl.Map({
+        container: "map", // container ID
+        style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
+        center: [<%= longlat %>], // starting position [lng, lat]
+        zoom: 6, // starting zoom
+      });
+    map.on('load', () => {
+        const mapContainerEl = document.getElementById('map');
+        mapContainerEl.style.visibility = 'visible';
+      });
+  <% @locations.each do |location| %>
+    var marker1 = new mapboxgl.Marker()
+      .setLngLat([<%= "#{location.longitude.to_s},#{location.latitude.to_s}" %>])
+      .addTo(map);
+  <% end %>
+</script>
