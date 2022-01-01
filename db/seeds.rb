@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 User.create(email: 'admin@bbq.com', password: 'resetme')
+LoadData.new.call

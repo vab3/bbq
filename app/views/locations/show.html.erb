@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<% longlat = "#{@loc.longitude},#{@loc.latitude}" %>
+<% longlat = "#{@location.longitude},#{@location.latitude}" %>
 <% mapbox_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/#{longlat},10/600x400?access_token=pk.eyJ1IjoidmFiMyIsImEiOiJja3VlYXUwbmExaXR3MnZtbnFycTlzbmhyIn0.q2g4fb0Z5YpRx84-rtGLWw" %>
     <style>
       #content { width: 600px; }
@@ -12,27 +12,27 @@
         width: 100%; height: 100%; grid-column: 1; grid-row: 1; }
     </style>
 
-<h1><%= @loc.vendor.name %></h1>
+<h1><%= @location.vendor.name %></h1>
 
 <div id="container">
   <div id="map"></div>
   <div id="static"></div>
 </div>
 
-<div><%= @loc.vendor.website %> </div>
+<div><%= @location.vendor.website %> </div>
 
 <div>
-  <%= @loc.address_1 %></br>
-  <%= @loc.address_2 %></br>
-  <%= @loc.city %>, <%= @loc.state %> <%= @loc.postal_code %>
+  <%= @location.address_1 %></br>
+  <%= @location.address_2 %></br>
+  <%= @location.city %>, <%= @location.state %> <%= @location.postal_code %>
 </div>
 
 <div>
-  <%= @loc.phone %>
+  <%= @location.phone %>
 </div>
 
 <div>
-  <%= @loc.hours %>
+  <%= @location.hours %>
 </div>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoidmFiMyIsImEiOiJja3VlYXUwbmExaXR3MnZtbnFycTlzbmhyIn0.q2g4fb0Z5YpRx84-rtGLWw';

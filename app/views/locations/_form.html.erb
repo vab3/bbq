@@ -12,6 +12,12 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :vendor %>
+    <%= @location.vendor.name %>
+    <%= form.hidden_field :vendor_id, value: @location.vendor.id %>
+  </div>
+
+  <div class="field">
     <%= form.label :latitude %>
     <%= form.text_field :latitude %>
   </div>

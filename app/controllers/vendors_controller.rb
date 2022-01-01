@@ -10,8 +10,8 @@ class VendorsController < ApplicationController
 
   def create
     redirect_to vendors_path unless user_signed_in?
-    Vendor.create(vendor_params)
-    redirect_to vendor_path
+    vendor = Vendor.create(vendor_params)
+    redirect_to vendor_path(vendor.id)
   end
 
   def edit

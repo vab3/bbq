@@ -25,3 +25,7 @@
   <% end %>
 
 <% end %>
+
+<% if user_signed_in? %>
+  <%= link_to "Add Location", new_location_path(vendor_id: @vendor.id) %>
+<% end %>
