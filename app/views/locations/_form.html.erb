@@ -1,4 +1,5 @@
-<%= form_with(model: @location, local: true) do |form| %>
+
+<%= form_with(model: @location, local: true, data: {controller: "places", action: "google-maps-callback@window->places#initMap"}) do |form| %>
   <% if @location.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(loc.errors.count, "error") %> prohibited this loc from being saved:</h2>
@@ -18,41 +19,51 @@
   </div>
 
   <div class="field">
+    <%= form.label 'address search' %>
+    <%= form.text_field 'search', data: { "places-target" => "field" } %>
+  </div>
+
+  <div class="field">
     <%= form.label :latitude %>
-    <%= form.text_field :latitude %>
+    <%= form.text_field :latitude, data: { "places-target" => "latitude" } %>
   </div>
 
   <div class="field">
     <%= form.label :longitude %>
-    <%= form.text_field :longitude %>
+    <%= form.text_field :longitude, data: { "places-target" => "longitude" } %>
   </div>
 
   <div class="field">
     <%= form.label :address_1 %>
-    <%= form.text_field :address_1 %>
+    <%= form.text_field :address_1, data: { "places-target" => "address1" } %>
   </div>
 
   <div class="field">
     <%= form.label :address_2 %>
-    <%= form.text_field :address_2 %>
+    <%= form.text_field :address_2, data: { "places-target" => "address2" } %>
   </div>
 
   <div class="field">
     <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.text_field :city, data: { "places-target" => "city" } %>
   </div>
 
   <div class="field">
     <%= form.label :state %>
-    <%= form.text_field :state %>
+    <%= form.text_field :state, data: { "places-target" => "state" } %>
   </div>
 
   <div class="field">
     <%= form.label :postal_code %>
-    <%= form.text_field :postal_code %>
+    <%= form.text_field :postal_code, data: { "places-target" => "postal_code" }  %>
+  </div>
+
+  <div>
+    <div data-target="places.map" style="height:400px;width:400px"></div>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
