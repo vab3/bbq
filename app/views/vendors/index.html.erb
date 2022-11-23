@@ -26,6 +26,7 @@
           </div>
       <% end %>
       <% if user_signed_in? %>
+        <div> Status: <%= vendor.status %></div>
         <div>
          <%= link_to "Edit", edit_vendor_path(vendor) %> 
          | <%= link_to "Delete", vendor_path(vendor),data: {confirm: "Are you sure?"}, method: :delete %> 
