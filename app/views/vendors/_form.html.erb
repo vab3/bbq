@@ -11,8 +11,12 @@
   <p>
   <p>
   <%= f.label :status %><br>
-  <%= select_tag :status, 
-      options_for_select(Vendor.statuses.map {|k, v| [k.humanize.capitalize, v]}, Vendor.statuses[@vendor.status])  %> 
+  <%= f.select :status,
+      options_for_select(
+        Vendor.statuses.map {|k, v| [k.humanize.capitalize, k]},
+        @vendor.status
+      )
+  %>
   </p>
   <p>
   <%= f.submit %>
